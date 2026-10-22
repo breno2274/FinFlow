@@ -1,0 +1,32 @@
+sequenceDiagram
+    autonumber
+    actor Usuario as Usuário
+    participant FormModal as views/transaction-form.js
+    participant Validator as utils/validators.js
+    participant TxService as services/transaction-service.js
+    participant Storage as core/storage.js
+    participant LocalStorage as LocalStorage (Browser)
+    participant EventBus as window (CustomEvent)
+    participant Dashboard as views/dashboard.js
+
+    Usuario->>FormModal: Preenche descrição, valor, data e categoria
+    Usuario->>FormModal: Clica em "Salvar transação"
+    FormModal->>Validator: validateTransaction(dados, categorias)
+    
+    alt Dados Inválidos
+        Validator-->>FormModal: Retorna erros { description, amount, etc. }
+        FormModal-->>Usuario: Exibe mensagens de validação em vermelho
+    else Dados Válidos
+        Validator-->>FormModal: Retorna { isValid: true }
+        FormModal->>TxService: createTransaction(dados)
+        TxService->>Storage: saveTransactions(listaAtualizada)
+        Storage->>LocalStorage: localStorage.setItem('finflow_v1_transactions', json)
+        Storage->>EventBus: dispatchEvent('finflow-data-changed')
+        FormModal-->>Usuario: Fecha modal e exibe Toast de Sucesso
+        
+        EventBus->>Dashboard: Notifica atualização de dados
+        Dashboard->>TxService: calculateSummary(mesAtual)
+        Dashboard->>TxService: getRecentTransactions()
+        Dashboard->>Dashboard: Recalcula saldo e renderiza novo gráfico SVG
+        Dashboard-->>Usuario: Interface atualizada instantaneamente
+    end

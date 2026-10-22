@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finflow &mdash; Seu Controle Financeiro</title>
+
+  <!-- Metadados de SEO e Autor -->
+  <meta name="description" content="Finflow é uma aplicação web de controle financeiro pessoal com identidade visual cuidadosa, gráficos em tempo real, orçamentos e metas. Projeto desenvolvido por Breno dos Santos Santana." />
+  <meta name="author" content="Breno dos Santos Santana" />
+  <meta name="theme-color" content="#76B8B2" />
+
+  <!-- Ícone da aba ao lado do título do site (Favicon) -->
+  <link rel="icon" type="image/svg+xml" href="img/simbolo-finflow.svg" />
+  <link rel="shortcut icon" type="image/svg+xml" href="img/simbolo-finflow.svg" />
+  <link rel="apple-touch-icon" href="img/simbolo-finflow.svg" />
+
+  <!-- Tipografia Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+  <!-- Folhas de Estilo do Sistema Visual Finflow -->
+  <link rel="stylesheet" href="src/css/tokens.css" />
+  <link rel="stylesheet" href="src/css/reset.css" />
+  <link rel="stylesheet" href="src/css/base.css" />
+  <link rel="stylesheet" href="src/css/layout.css" />
+  <link rel="stylesheet" href="src/css/components.css" />
+  <link rel="stylesheet" href="src/css/pages.css" />
+  <link rel="stylesheet" href="src/css/responsive.css" />
+</head>
+<body>
+  <!-- Container Mestre do Aplicativo SPA -->
+  <div id="app">
+
+    <!-- ==================================================================== -->
+    <!-- TELA 01: LANDING PAGE (PÁGINA INICIAL PÚBLICA)                       -->
+    <!-- Edite aqui os títulos h1, h2, parágrafos e seções da página inicial  -->
+    <!-- ==================================================================== -->
+    <div id="view-landing" class="view-screen active">
+      <div class="landing-page">
+        <!-- Cabeçalho Público -->
+        <header class="landing-header">
+          <a href="#/" class="sidebar-brand" aria-label="Finflow Início">
+            <img src="img/logo-finflow.svg" alt="Finflow" />
+          </a>
+          <nav class="landing-nav" aria-label="Navegação institucional">
+            <a href="#recursos" class="landing-nav-link">Recursos</a>
+            <a href="#/sobre" class="landing-nav-link">Sobre</a>
+            <a href="#/login" class="landing-nav-link">Entrar</a>
+            <a href="#/dashboard" class="btn btn-primary btn-sm">Acessar Painel</a>
+          </nav>
+        </header>
+
+        <main>
+          <!-- Seção Hero Principal -->
+          <section class="hero-section">
+            <div class="hero-content">
+              <span class="hero-tag">Finanças com mais clareza</span>
+              <h1 class="hero-title">Seu controle financeiro.</h1>
+              <p class="hero-description">
+                Organize receitas, despesas e metas em um painel simples, leve e intuitivo
+                para tomar decisões melhores e alcançar sua tranquilidade financeira.
+              </p>
+              <div class="hero-actions">
+                <a href="#/dashboard" class="btn btn-primary btn-lg" id="btn-comecar-agora">
+                  Começar agora
+                </a>
+                <a href="#/sobre" class="btn btn-secondary btn-lg" id="btn-saiba-mais">
+                  Saiba mais
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <img
+                src="img/ilustracao-hero-finflow.svg"
+                alt="Prévia do painel do Finflow com gráficos de fluxo e cartões de saldo"
+                width="620"
+                height="420"
+              />
+            </div>
+          </section>
+
+          <!-- Seção de Recursos e Benefícios -->
+          <section class="landing-features-section" id="recursos">
+            <div class="features-grid">
+              <!-- Benefício 1: Registro Fácil -->
+              <div class="feature-card">
+                <div class="feature-icon-badge">
+                  <img src="img/icone-receitas.svg" alt="" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 class="feature-title">Registro fácil</h3>
+                  <p class="feature-desc">Lance receitas e despesas rapidamente com categorias personalizadas e datas organizadas.</p>
+                </div>
+              </div>
+
+              <!-- Benefício 2: Leitura de Gastos -->
+              <div class="feature-card">
+                <div class="feature-icon-badge">
+                  <img src="img/icone-relatorios.svg" alt="" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 class="feature-title">Leitura de gastos</h3>
+                  <p class="feature-desc">Entenda para onde vai o seu dinheiro por meio de gráficos limpos e indicadores de rápida absorção.</p>
+                </div>
+              </div>
+
+              <!-- Benefício 3: Metas Financeiras -->
+              <div class="feature-card">
+                <div class="feature-icon-badge">
+                  <img src="img/icone-metas.svg" alt="" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 class="feature-title">Metas financeiras</h3>
+                  <p class="feature-desc">Estipule limites de orçamento mensais e acompanhe o percentual de conclusão dos seus sonhos de economia.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Seção Sobre o Projeto e Autor -->
+          <section class="about-section" id="sobre">
+            <div class="about-container">
+              <h2>Engenharia Front-end e UX/UI</h2>
+              <p>
+                O <strong>Finflow</strong> foi desenvolvido focado em desenvolvimento Front-end.
+              </p>
+              <p>
+                Construído com HTML5 semântico, CSS3 puro com tokens de design e JavaScript ES Modules nativo, o projeto funciona de forma 100% estática e autônoma, persistindo seus dados de forma privada no LocalStorage do seu navegador.
+              </p>
+              <div style="margin-top: var(--spacing-6);">
+                <a href="#/dashboard" class="btn btn-primary">Experimentar demonstração completa</a>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <!-- Rodapé Institucional -->
+        <footer class="app-footer">
+          <p>Finflow &mdash; projeto de controle financeiro desenvolvido por <strong>Breno dos Santos Santana</strong>.</p>
+          <div class="footer-author-links">
+            <a href="https://github.com/breno2274" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="GitHub de Breno dos Santos Santana" title="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/breno-dos-santos-santana-2723a4213" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn de Breno dos Santos Santana" title="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- TELA 02: SOBRE O FINFLOW (PÁGINA INSTITUCIONAL)                      -->
+    <!-- Edite aqui as funcionalidades, objetivos e tecnologias do produto    -->
+    <!-- ==================================================================== -->
+    <div id="view-about" class="view-screen">
+      <div class="about-page">
+        <!-- Cabeçalho Público -->
+        <header class="landing-header">
+          <a href="#/" class="sidebar-brand" aria-label="Finflow Início">
+            <img src="img/logo-finflow.svg" alt="Finflow" />
+          </a>
+          <nav class="landing-nav" aria-label="Navegação institucional">
+            <a href="#/" class="landing-nav-link">Início</a>
+            <a href="#/sobre" class="landing-nav-link active">Sobre</a>
+            <a href="#/login" class="landing-nav-link">Entrar</a>
+            <a href="#/dashboard" class="btn btn-primary btn-sm">Acessar Painel</a>
+          </nav>
+        </header>
+
+        <main class="about-main">
+          <!-- Hero da Página Sobre -->
+          <section class="about-hero-section">
+            <span class="hero-tag">Conheça o Finflow</span>
+            <h1 class="about-hero-title">Controle financeiro inteligente, visual e sem complicação.</h1>
+            <p class="about-hero-subtitle">
+              O Finflow é uma plataforma web completa de finanças pessoais, desenvolvida para entregar controle total
+              sobre suas movimentações, orçamentos e metas, priorizando transparência, privacidade e excelência de interface.
+            </p>
+            <div class="about-hero-actions">
+              <a href="#/dashboard" class="btn btn-primary btn-lg">Explorar Painel Agora</a>
+              <a href="#/" class="btn btn-secondary btn-lg">Voltar ao Início</a>
+            </div>
+          </section>
+
+          <!-- Grid de Funcionalidades Principais -->
+          <section class="about-features-section" aria-label="Funcionalidades do Finflow">
+            <div class="section-title-wrap">
+              <span class="hero-tag" style="background-color: var(--color-mint); color: var(--color-primary-dark);">Recursos e Capacidades</span>
+              <h2 class="about-section-heading">Tudo o que você precisa para dominar suas finanças</h2>
+              <p class="about-section-subheading">Cada tela foi projetada para resolver um desafio real de organização e planejamento financeiro pessoal.</p>
+            </div>
+
+            <div class="about-features-grid">
+              <!-- Card 01 -->
+              <article class="about-feature-card">
+                <div class="about-feature-header">
+                  <div class="about-feature-icon-wrap">
+                    <img src="img/icone-dashboard.svg" alt="" aria-hidden="true" />
+                  </div>
+                  <span class="about-feature-number">01</span>
+                </div>
+                <h3 class="about-feature-title">Painel Executivo e Dashboard em Tempo Real</h3>
+                <p class="about-feature-desc">Acompanhe seu saldo consolidado, receitas do mês, despesas e taxa de metas atingidas. Gráfico vetorial de fluxo financeiro em SVG com curvas suaves para visualizar entradas e saídas dos últimos 6 meses.</p>
+              </article>
+
+              <!-- Card 02 -->
+              <article class="about-feature-card">
+                <div class="about-feature-header">
+                  <div class="about-feature-icon-wrap">
+                    <img src="img/icone-receitas.svg" alt="" aria-hidden="true" />
+                  </div>
+                  <span class="about-feature-number">02</span>
+                </div>
+                <h3 class="about-feature-title">Gestão Inteligente de Transações</h3>
+                <p class="about-feature-desc">Lance receitas e despesas com valores em Real (BRL), data e categoria personalizada. Tabela dinâmica com busca em tempo real por descrição, filtros rápidos por período, tipo e paginação sob medida.</p>
+              </article>
+
+              <!-- Card 03 -->
+              <article class="about-feature-card">
+                <div class="about-feature-header">
+                  <div class="about-feature-icon-wrap">
+                    <img src="img/icone-despesas.svg" alt="" aria-hidden="true" />
+                  </div>
+                  <span class="about-feature-number">03</span>
+                </div>
+                <h3 class="about-feature-title">Tetos de Gastos e Limites de Orçamento</h3>
+                <p class="about-feature-desc">Estipule orçamentos mensais para categorias-chave (Moradia, Alimentação, Lazer). Barras de consumo inteligentes com alerta em amarelo ao atingir 80% e vermelho ao estourar o limite de 100%.</p>
+              </article>
+
+              <!-- Card 04 -->
+              <article class="about-feature-card">
+                <div class="about-feature-header">
+                  <div class="about-feature-icon-wrap">
+                    <img src="img/icone-metas.svg" alt="" aria-hidden="true" />
+                  </div>
+                  <span class="about-feature-number">04</span>
+                </div>
+                <h3 class="about-feature-title">Metas Financeiras e Acompanhamento de Economia</h3>
+                <p class="about-feature-desc">Planeje viagens, reservas de emergência ou grandes aquisições. Visualize a evolução com anéis circulares percentuais em SVG e adicione aportes rápidos com o botão de aporte.</p>
+              </article>
+
+              <!-- Card 05 -->
+              <article class="about-feature-card">
+                <div class="about-feature-header">
+                  <div class="about-feature-icon-wrap">
+                    <img src="img/icone-relatorios.svg" alt="" aria-hidden="true" />
+                  </div>
+                  <span class="about-feature-number">05</span>
+                </div>
+                <h3 class="about-feature-title">Relatórios Analíticos e Distribuição de Gastos</h3>
+                <p class="about-feature-desc">Compreenda a evolução financeira através de gráficos comparativos de barras mensais e análise proporcional de despesas por categoria nos períodos de 3, 6 ou 12 meses.</p>
+              </article>
+
+              <!-- Card 06 -->
+              <article class="about-feature-card">
+                <div class="about-feature-header">
+                  <div class="about-feature-icon-wrap">
+                    <img src="img/icone-categorias.svg" alt="" aria-hidden="true" />
+                  </div>
+                  <span class="about-feature-number">06</span>
+                </div>
+                <h3 class="about-feature-title">Categorias Customizadas com Proteção de Dados</h3>
+                <p class="about-feature-desc">Crie e organize categorias com cores exclusivas. O sistema possui trava inteligente que impede a exclusão acidental de categorias com movimentações vinculadas, oferecendo reclassificação assistida.</p>
+              </article>
+
+              <!-- Card 07 -->
+              <article class="about-feature-card">
+                <div class="about-feature-header">
+                  <div class="about-feature-icon-wrap">
+                    <img src="img/icone-configuracoes.svg" alt="" aria-hidden="true" />
+                  </div>
+                  <span class="about-feature-number">07</span>
+                </div>
+                <h3 class="about-feature-title">Privacidade Total e Backup Local em JSON</h3>
+                <p class="about-feature-desc">Seus dados financeiros permanecem 100% no seu dispositivo via LocalStorage, sem rastreadores. Exporte backups completos em arquivo JSON versionado e restaure suas finanças a qualquer momento.</p>
+              </article>
+
+              <!-- Card 08 -->
+              <article class="about-feature-card">
+                <div class="about-feature-header">
+                  <div class="about-feature-icon-wrap">
+                    <img src="img/simbolo-finflow.svg" alt="" aria-hidden="true" />
+                  </div>
+                  <span class="about-feature-number">08</span>
+                </div>
+                <h3 class="about-feature-title">Design Responsivo, Acessibilidade e Modo Escuro</h3>
+                <p class="about-feature-desc">Interface adaptável para smartphones com gaveta retrátil e barra móvel de atalhos, contraste auditado conforme diretrizes WCAG AA, navegação total por teclado e suporte a tema escuro.</p>
+              </article>
+            </div>
+          </section>
+
+          <!-- Seção de Arquitetura e Engenharia de Software -->
+          <section class="about-tech-section">
+            <div class="about-tech-card">
+              <h2 class="about-section-heading" style="color: var(--color-text);">Engenharia Front-end Limpa e Sem Frameworks</h2>
+              <p class="about-tech-desc">
+                O <strong>FinFlow</strong> foi concebido por <strong>Breno dos Santos Santana</strong>. O projeto foi projetado para portifólio em desenvolvimento web.
+              </p>
+
+              <div class="about-tech-pills">
+                <span class="about-tech-pill">HTML5 Semântico</span>
+                <span class="about-tech-pill">Vanilla CSS3 & Tokens</span>
+                <span class="about-tech-pill">JavaScript ES Modules</span>
+                <span class="about-tech-pill">Single Page Application (SPA)</span>
+                <span class="about-tech-pill">LocalStorage Versionado</span>
+                <span class="about-tech-pill">Gráficos SVG Nativos</span>
+                <span class="about-tech-pill">Acessibilidade WCAG AA</span>
+                <span class="about-tech-pill">Zero Dependências Externas</span>
+              </div>
+
+              <div style="margin-top: var(--spacing-8); display: flex; gap: var(--spacing-3); justify-content: center; flex-wrap: wrap;">
+                <a href="#/dashboard" class="btn btn-primary">Começar a usar o Finflow</a>
+                <a href="#/" class="btn btn-secondary">Página inicial</a>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <!-- Rodapé Institucional -->
+        <footer class="app-footer">
+          <p>Finflow &mdash; projeto de controle financeiro desenvolvido por <strong>Breno dos Santos Santana</strong>.</p>
+          <div class="footer-author-links">
+            <a href="https://github.com/breno2274" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="GitHub de Breno dos Santos Santana" title="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/breno-dos-santos-santana-2723a4213" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn de Breno dos Santos Santana" title="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- TELA 03: LOGIN CONCEITUAL / DEMONSTRAÇÃO                            -->
+    <!-- Edite aqui os textos, títulos e notas da tela de autenticação        -->
+    <!-- ==================================================================== -->
+    <div id="view-login" class="view-screen">
+      <div class="auth-view">
+        <div class="auth-card-split">
+          <!-- Lado Esquerdo: Identidade Visual e Mensagem do Finflow -->
+          <div class="auth-side-brand">
+            <div>
+              <a href="#/" aria-label="Voltar para a página inicial">
+                <img src="img/logo-finflow.svg" alt="Finflow" style="height: 32px; width: auto;" />
+              </a>
+            </div>
+
+            <div class="auth-tagline">
+              <h2>Seu dinheiro,<br>mais organizado.</h2>
+              <p style="color: var(--color-primary-dark); font-size: var(--font-size-sm); margin-top: var(--spacing-2);">
+                Acesse seu espaço para acompanhar despesas, receitas e objetivos financeiros.
+              </p>
+            </div>
+
+            <div>
+              <a href="#/" style="font-size: var(--font-size-xs); color: var(--color-primary-dark); font-weight: 600;">
+                &larr; Voltar para a página inicial
+              </a>
+            </div>
+          </div>
+
+          <!-- Lado Direito: Formulário Conceitual e Modo Demonstração -->
+          <div class="auth-form-side">
+            <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-1);">Bem-vindo de volta</h2>
+            <p class="card-subtitle" style="margin-bottom: var(--spacing-6);">Entre para continuar no Finflow</p>
+
+            <form id="form-auth" novalidate>
+              <div class="form-group">
+                <label for="auth-email" class="form-label">E-mail</label>
+                <input
+                  type="email"
+                  id="auth-email"
+                  class="form-input"
+                  placeholder="voce@email.com"
+                  value="usertest@exemplo.com"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="auth-password" class="form-label">Senha</label>
+                <input
+                  type="password"
+                  id="auth-password"
+                  class="form-input"
+                  placeholder="Sua senha"
+                  value="demo12345"
+                  required
+                />
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: var(--spacing-3); margin-top: var(--spacing-4);">
+                <button type="submit" class="btn btn-primary btn-lg" id="btn-submit-auth" style="width: 100%;">
+                  Entrar
+                </button>
+              </div>
+            </form>
+
+            <div class="auth-disclaimer">
+              <strong>Aviso:</strong> Esta primeira versão do Finflow é 100% estática e utiliza LocalStorage.
+              Não armazenamos senhas no navegador nem simulamos um backend com falsa segurança.
+              O login com sincronização em nuvem e banco de dados faz parte do planejamento da fase seguinte.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- APP SHELL: SISTEMA INTERNO DO FINFLOW                                -->
+    <!-- Estrutura mestre das telas internas com Sidebar, Header e Footer     -->
+    <!-- ==================================================================== -->
+    <div id="view-app-shell" class="view-screen app-shell">
+
+      <!-- Sidebar de Navegação Lateral -->
+      <aside class="app-sidebar" id="app-sidebar" aria-label="Navegação principal">
+        <div class="sidebar-header">
+          <a href="#/" class="sidebar-brand" aria-label="Finflow Início">
+            <img src="img/logo-finflow.svg" alt="Finflow" />
+          </a>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="#/dashboard" class="nav-link active" aria-current="page" data-nav-id="dashboard">
+                <img src="img/icone-dashboard.svg" alt="" aria-hidden="true" />
+                <span>Visão geral</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/transacoes" class="nav-link" data-nav-id="transacoes">
+                <img src="img/icone-receitas.svg" alt="" aria-hidden="true" />
+                <span>Transações</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/orcamentos" class="nav-link" data-nav-id="orcamentos">
+                <img src="img/icone-metas.svg" alt="" aria-hidden="true" />
+                <span>Orçamentos e metas</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/relatorios" class="nav-link" data-nav-id="relatorios">
+                <img src="img/icone-relatorios.svg" alt="" aria-hidden="true" />
+                <span>Relatórios</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/categorias" class="nav-link" data-nav-id="categorias">
+                <img src="img/icone-categorias.svg" alt="" aria-hidden="true" />
+                <span>Categorias</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/configuracoes" class="nav-link" data-nav-id="configuracoes">
+                <img src="img/icone-configuracoes.svg" alt="" aria-hidden="true" />
+                <span>Configurações</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="user-avatar" title="Perfil do usuário">U</div>
+          <div class="user-info">
+            <span class="user-name">UserTest</span>
+            <span class="user-role">Modo Demonstração</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Fundo translúcido para gaveta móvel -->
+      <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+
+      <!-- Conteúdo Principal do Painel -->
+      <div class="app-main">
+
+        <!-- Topbar / Cabeçalho Superior do Sistema -->
+        <header class="app-header">
+          <div class="header-left">
+            <button
+              type="button"
+              class="mobile-menu-btn"
+              id="btn-mobile-menu"
+              aria-label="Abrir menu de navegação lateral"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+
+            <div class="page-title-wrap">
+              <h1 id="topbar-page-title">Visão geral</h1>
+            </div>
+          </div>
+
+          <div class="header-right">
+            <a href="#/configuracoes" class="user-avatar" id="topbar-user-avatar" title="Configurações de perfil">
+              U
+            </a>
+          </div>
+        </header>
+
+        <!-- Área Dinâmica de Conteúdo das Telas Internas -->
+        <main class="app-content" id="app-view-content">
+
+          <!-- ---------------------------------------------------------------- -->
+          <!-- SUBPAGE: DASHBOARD (VISÃO GERAL)                                 -->
+          <!-- Edite aqui os títulos, subtítulos e seções do painel principal  -->
+          <!-- ---------------------------------------------------------------- -->
+          <section id="view-dashboard" class="subpage-view active">
+            <div class="dashboard-view">
+              <!-- Toolbar Superior: Saudação, Seletor de Período e Ação Rápida -->
+              <div class="dashboard-toolbar">
+                <div>
+                  <h2 class="greeting-text" id="dashboard-greeting">Olá, UserTest!</h2>
+                  <p class="card-subtitle">Veja sua vida financeira em um só lugar.</p>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: var(--spacing-3); flex-wrap: wrap;">
+                  <select id="dashboard-period-select" class="form-select" style="width: auto; min-width: 170px;" aria-label="Filtrar por período">
+                    <option value="2026-10" selected>Outubro de 2026</option>
+                    <option value="2026-09">Setembro de 2026</option>
+                    <option value="2026-08">Agosto de 2026</option>
+                    <option value="todos">Todas as transações</option>
+                  </select>
+
+                  <button type="button" class="btn btn-primary" id="btn-quick-new-tx">
+                    + Nova transação
+                  </button>
+                </div>
+              </div>
+
+              <!-- Grid com os 4 Cards de Indicadores Principais -->
+              <section class="metrics-grid" aria-label="Indicadores financeiros">
+                <!-- Card 1: Saldo atual -->
+                <div class="card metric-card">
+                  <div class="metric-header">
+                    <span class="metric-label">Saldo atual</span>
+                    <div class="metric-icon-wrap" style="background-color: var(--color-mint);">
+                      <span style="font-weight: 700; color: var(--color-primary-dark);">$</span>
+                    </div>
+                  </div>
+                  <div class="metric-value" id="dashboard-metric-balance">R$ 0,00</div>
+                  <div class="metric-footer">
+                    <span style="color: var(--color-positive); font-weight: 600;">+12%</span>
+                    <span>comparado ao mês passado</span>
+                  </div>
+                </div>
+
+                <!-- Card 2: Receitas -->
+                <div class="card metric-card">
+                  <div class="metric-header">
+                    <span class="metric-label">Receitas</span>
+                    <div class="metric-icon-wrap" style="background-color: var(--color-positive-bg);">
+                      <img src="img/icone-receitas.svg" alt="" aria-hidden="true" style="width: 16px; height: 16px;" />
+                    </div>
+                  </div>
+                  <div class="metric-value positive" id="dashboard-metric-income">R$ 0,00</div>
+                  <div class="metric-footer">
+                    <span>Entradas do período</span>
+                  </div>
+                </div>
+
+                <!-- Card 3: Despesas -->
+                <div class="card metric-card">
+                  <div class="metric-header">
+                    <span class="metric-label">Despesas</span>
+                    <div class="metric-icon-wrap" style="background-color: var(--color-negative-bg);">
+                      <img src="img/icone-despesas.svg" alt="" aria-hidden="true" style="width: 16px; height: 16px;" />
+                    </div>
+                  </div>
+                  <div class="metric-value negative" id="dashboard-metric-expense">R$ 0,00</div>
+                  <div class="metric-footer">
+                    <span>Saídas do período</span>
+                  </div>
+                </div>
+
+                <!-- Card 4: Metas de economia -->
+                <div class="card metric-card">
+                  <div class="metric-header">
+                    <span class="metric-label">Metas de economia</span>
+                    <div class="metric-icon-wrap" style="background-color: var(--color-mint);">
+                      <img src="img/icone-metas.svg" alt="" aria-hidden="true" style="width: 16px; height: 16px;" />
+                    </div>
+                  </div>
+                  <div class="metric-value" id="dashboard-metric-goals">0%</div>
+                  <div class="metric-footer">
+                    <div class="progress-track" style="margin-top: var(--spacing-2); height: 6px;">
+                      <div class="progress-fill" id="dashboard-metric-goals-fill" style="width: 0%;"></div>
+                    </div>
+                    <span id="dashboard-metric-goals-sub" style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: var(--spacing-1); display: inline-block;">
+                      Concluído do total
+                    </span>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Grid com Gráfico de Fluxo e Tabela de Recentes -->
+              <section class="dashboard-charts-grid">
+                <!-- Coluna Esquerda: Gráfico de Curva de Fluxo Financeiro -->
+                <div class="card">
+                  <div class="card-header">
+                    <div>
+                      <h3 class="card-title">Fluxo financeiro</h3>
+                      <p class="card-subtitle">Entradas e saídas dos últimos 6 meses</p>
+                    </div>
+                    <div class="chart-legend">
+                      <span class="legend-item"><span class="legend-dot" style="background-color: #76B8B2;"></span>Receitas</span>
+                      <span class="legend-item"><span class="legend-dot" style="background-color: #D96868;"></span>Despesas</span>
+                    </div>
+                  </div>
+                  <div class="chart-container" id="dashboard-chart-container">
+                    <!-- Gráfico SVG nativo gerado pelo JavaScript -->
+                  </div>
+                </div>
+
+                <!-- Coluna Direita: Transações Recentes -->
+                <div class="card">
+                  <div class="card-header">
+                    <div>
+                      <h3 class="card-title">Transações recentes</h3>
+                      <p class="card-subtitle">Últimas movimentações registradas</p>
+                    </div>
+                    <a href="#/transacoes" class="btn btn-secondary btn-sm">Ver todas</a>
+                  </div>
+                  <div class="recent-transactions-list" id="dashboard-recent-transactions">
+                    <!-- Lista de transações gerada pelo JavaScript -->
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <!-- ---------------------------------------------------------------- -->
+          <!-- SUBPAGE: TRANSAÇÕES                                              -->
+          <!-- Edite aqui os títulos, filtros e cabeçalho da tabela de registros-->
+          <!-- ---------------------------------------------------------------- -->
+          <section id="view-transactions" class="subpage-view">
+            <div class="transactions-view">
+              <!-- Cabeçalho com Ação Principal -->
+              <div class="dashboard-toolbar">
+                <div>
+                  <p class="card-subtitle">Encontre, filtre e gerencie suas movimentações financeiras.</p>
+                </div>
+                <button type="button" class="btn btn-primary" id="btn-add-transaction">
+                  + Nova transação
+                </button>
+              </div>
+
+              <!-- Barra de Filtros e Pesquisa -->
+              <div class="transactions-filter-bar">
+                <div class="filter-group-left">
+                  <!-- Campo de Busca -->
+                  <div class="search-input-wrap">
+                    <span class="search-icon" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                    </span>
+                    <input
+                      type="text"
+                      id="filter-search"
+                      class="form-input"
+                      placeholder="Buscar transação..."
+                      aria-label="Buscar movimentações"
+                    />
+                  </div>
+
+                  <!-- Filtro por Período / Mês -->
+                  <select id="filter-month" class="form-select" style="width: auto; min-width: 150px;" aria-label="Filtrar por data">
+                    <option value="todos">Todas as datas</option>
+                    <option value="2026-10">Outubro de 2026</option>
+                    <option value="2026-09">Setembro de 2026</option>
+                    <option value="2026-08">Agosto de 2026</option>
+                  </select>
+
+                  <!-- Filtro por Tipo -->
+                  <select id="filter-type" class="form-select" style="width: auto;" aria-label="Filtrar por tipo">
+                    <option value="todos">Todos os tipos</option>
+                    <option value="receita">Receitas</option>
+                    <option value="despesa">Despesas</option>
+                  </select>
+
+                  <!-- Filtro por Categoria -->
+                  <select id="filter-category" class="form-select" style="width: auto;" aria-label="Filtrar por categoria">
+                    <option value="todos">Todas as categorias</option>
+                  </select>
+                </div>
+
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-clear-filters" title="Limpar todos os filtros">
+                  Limpar filtros
+                </button>
+              </div>
+
+              <!-- Tabela de Movimentações -->
+              <div class="table-responsive" id="transactions-table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Descrição</th>
+                      <th scope="col">Categoria</th>
+                      <th scope="col">Data</th>
+                      <th scope="col">Tipo</th>
+                      <th scope="col">Valor</th>
+                      <th scope="col" style="text-align: right;">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody id="transactions-tbody">
+                    <!-- Linhas povoadas dinamicamente pelo JavaScript -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Container de Estado Vazio -->
+              <div id="transactions-empty-state" style="display: none;"></div>
+
+              <!-- Paginação da Tabela -->
+              <div class="pagination-container" id="transactions-pagination-wrap"></div>
+            </div>
+          </section>
+
+          <!-- ---------------------------------------------------------------- -->
+          <!-- SUBPAGE: ORÇAMENTOS E METAS                                      -->
+          <!-- Edite aqui os títulos, subtítulos e seções de limites e metas   -->
+          <!-- ---------------------------------------------------------------- -->
+          <section id="view-budgets" class="subpage-view">
+            <div class="budgets-goals-view">
+              <!-- Toolbar Superior -->
+              <div class="dashboard-toolbar">
+                <div>
+                  <p class="card-subtitle">Controle limites mensais por categoria e alcance seus objetivos.</p>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: var(--spacing-3); flex-wrap: wrap;">
+                  <select id="budget-month-select" class="form-select" style="width: auto;" aria-label="Mês do orçamento">
+                    <option value="2026-10" selected>Outubro de 2026</option>
+                    <option value="2026-09">Setembro de 2026</option>
+                    <option value="2026-11">Novembro de 2026</option>
+                  </select>
+
+                  <button type="button" class="btn btn-secondary" id="btn-open-create-budget">
+                    + Criar orçamento
+                  </button>
+                  <button type="button" class="btn btn-primary" id="btn-open-create-goal">
+                    + Nova meta
+                  </button>
+                </div>
+              </div>
+
+              <!-- Grid com Orçamentos (Esquerda) e Metas (Direita) -->
+              <div class="budgets-goals-grid">
+                <!-- Coluna de Orçamentos -->
+                <section aria-labelledby="heading-orcamentos">
+                  <h3 id="heading-orcamentos" class="card-title">Orçamentos por categoria</h3>
+                  <p class="card-subtitle">Limites de gastos estipulados para o mês selecionado</p>
+                  <div class="budget-cards-list" id="budget-cards-container">
+                    <!-- Cartões de orçamentos gerados pelo JavaScript -->
+                  </div>
+                </section>
+
+                <!-- Coluna de Metas de Economia -->
+                <section aria-labelledby="heading-metas">
+                  <h3 id="heading-metas" class="card-title">Metas de economia</h3>
+                  <p class="card-subtitle">Progresso dos seus objetivos de médio e longo prazo</p>
+                  <div class="goals-list" id="goals-cards-container">
+                    <!-- Cartões de metas gerados pelo JavaScript -->
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+
+          <!-- ---------------------------------------------------------------- -->
+          <!-- SUBPAGE: RELATÓRIOS FINANCEIROS                                  -->
+          <!-- Edite aqui os títulos e seções de relatórios analíticos          -->
+          <!-- ---------------------------------------------------------------- -->
+          <section id="view-reports" class="subpage-view">
+            <div class="reports-view">
+              <!-- Toolbar Superior com Seletor de Período -->
+              <div class="dashboard-toolbar">
+                <div>
+                  <p class="card-subtitle">Transforme movimentações em tendências para entender seus hábitos.</p>
+                </div>
+
+                <div>
+                  <select id="reports-period-select" class="form-select" style="width: auto;" aria-label="Período do relatório">
+                    <option value="6" selected>Últimos 6 meses</option>
+                    <option value="3">Últimos 3 meses</option>
+                    <option value="12">Últimos 12 meses</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Grid com 3 Cards de KPIs Agregados -->
+              <section class="reports-kpis-grid" aria-label="Totais do período analisado">
+                <div class="card metric-card">
+                  <span class="metric-label">Receitas</span>
+                  <div class="metric-value positive" id="reports-kpi-income">R$ 0,00</div>
+                  <div class="metric-footer"><span>Total acumulado no período</span></div>
+                </div>
+
+                <div class="card metric-card">
+                  <span class="metric-label">Despesas</span>
+                  <div class="metric-value negative" id="reports-kpi-expense">R$ 0,00</div>
+                  <div class="metric-footer"><span>Saídas totais no período</span></div>
+                </div>
+
+                <div class="card metric-card">
+                  <span class="metric-label">Economia líquida</span>
+                  <div class="metric-value" id="reports-kpi-savings">R$ 0,00</div>
+                  <div class="metric-footer"><span>Superávit financeiro acumulado</span></div>
+                </div>
+              </section>
+
+              <!-- Grid Principal com Gráfico de Barras e Distribuição por Categoria -->
+              <section class="reports-charts-grid">
+                <!-- Gráfico: Receitas x Despesas -->
+                <div class="card">
+                  <div class="card-header">
+                    <div>
+                      <h3 class="card-title">Receitas x Despesas</h3>
+                      <p class="card-subtitle">Comparação mensal do fluxo no período</p>
+                    </div>
+                  </div>
+                  <div class="chart-container" id="reports-chart-container">
+                    <!-- Gráfico gerado pelo JavaScript -->
+                  </div>
+                </div>
+
+                <!-- Distribuição por Categoria -->
+                <div class="card">
+                  <div class="card-header">
+                    <div>
+                      <h3 class="card-title">Distribuição de despesas</h3>
+                      <p class="card-subtitle">Gastos consolidados por categoria no período</p>
+                    </div>
+                  </div>
+                  <div class="categories-progress-list" id="reports-categories-container">
+                    <!-- Lista gerada pelo JavaScript -->
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <!-- ---------------------------------------------------------------- -->
+          <!-- SUBPAGE: CATEGORIAS                                              -->
+          <!-- Edite aqui os títulos e seções de organização de categorias      -->
+          <!-- ---------------------------------------------------------------- -->
+          <section id="view-categories" class="subpage-view">
+            <div class="categories-view">
+              <!-- Toolbar de Categorias -->
+              <div class="dashboard-toolbar">
+                <div>
+                  <p class="card-subtitle">Organize os lançamentos para relatórios e filtros consistentes.</p>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: var(--spacing-3); flex-wrap: wrap;">
+                  <div class="search-input-wrap">
+                    <span class="search-icon" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                    </span>
+                    <input
+                      type="text"
+                      id="search-category"
+                      class="form-input"
+                      placeholder="Buscar categoria..."
+                      aria-label="Buscar categoria"
+                    />
+                  </div>
+
+                  <button type="button" class="btn btn-primary" id="btn-new-category">
+                    + Nova categoria
+                  </button>
+                </div>
+              </div>
+
+              <!-- 2 Colunas: Receitas e Despesas -->
+              <div class="categories-columns">
+                <!-- Coluna Receitas -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Receitas</h3>
+                    <span class="badge badge-income" id="badge-count-income">0 categorias</span>
+                  </div>
+                  <div class="category-list-card" id="categories-income-list">
+                    <!-- Categorias povoadas pelo JavaScript -->
+                  </div>
+                </div>
+
+                <!-- Coluna Despesas -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Despesas</h3>
+                    <span class="badge badge-expense" id="badge-count-expense">0 categorias</span>
+                  </div>
+                  <div class="category-list-card" id="categories-expense-list">
+                    <!-- Categorias povoadas pelo JavaScript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ---------------------------------------------------------------- -->
+          <!-- SUBPAGE: CONFIGURAÇÕES E BACKUP                                  -->
+          <!-- Edite aqui as preferências, formulários e opções de backup       -->
+          <!-- ---------------------------------------------------------------- -->
+          <section id="view-settings" class="subpage-view">
+            <div class="settings-view">
+              <!-- Toolbar Superior -->
+              <div class="dashboard-toolbar">
+                <div>
+                  <p class="card-subtitle">Ajuste suas preferências e proteja seus dados contra perda acidental.</p>
+                </div>
+              </div>
+
+              <!-- Grid com Preferências e Gestão de Dados -->
+              <div class="settings-grid">
+                <!-- Coluna Esquerda: Preferências do Usuário -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Preferências</h3>
+                  </div>
+
+                  <form id="form-preferences">
+                    <div class="form-group">
+                      <label for="pref-username" class="form-label">Nome de exibição</label>
+                      <input
+                        type="text"
+                        id="pref-username"
+                        class="form-input"
+                        value="UserTest"
+                        required
+                      />
+                      <span class="form-hint">Usado na saudação e cabeçalho do painel.</span>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="pref-currency" class="form-label">Moeda padrão</label>
+                      <select id="pref-currency" class="form-select">
+                        <option value="BRL" selected>Real brasileiro (BRL)</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="pref-dateformat" class="form-label">Formato de data</label>
+                      <select id="pref-dateformat" class="form-select">
+                        <option value="DD/MM/AAAA" selected>DD/MM/AAAA</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="theme-toggle-switch">Tema visual da interface</label>
+                      <div class="theme-switch-container">
+                        <label class="toggle-switch" for="theme-toggle-switch">
+                          <input type="checkbox" id="theme-toggle-switch" role="switch" aria-label="Alternar entre modo claro e modo escuro" />
+                          <span class="toggle-switch-track">
+                            <span class="toggle-switch-thumb"></span>
+                          </span>
+                        </label>
+                        <span class="theme-switch-text" id="theme-switch-text">Modo Claro</span>
+                      </div>
+                    </div>
+
+                    <div style="margin-top: var(--spacing-6);">
+                      <button type="submit" class="btn btn-primary" id="btn-save-preferences">
+                        Salvar preferências
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Coluna Direita: Administração de Dados e Backups -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Gerenciamento de dados</h3>
+                  </div>
+
+                  <div style="display: flex; flex-direction: column; gap: var(--spacing-6);">
+                    <!-- Exportação e Importação de Backup JSON -->
+                    <div class="backup-actions">
+                      <h4>Backup e Restauração</h4>
+                      <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--spacing-3);">
+                        Como seus dados são salvos com segurança apenas no seu navegador, recomendamos exportar um arquivo de backup regularmente.
+                      </p>
+
+                      <div style="display: flex; gap: var(--spacing-3); flex-wrap: wrap;">
+                        <button type="button" class="btn btn-secondary" id="btn-export-backup">
+                          Exportar backup (.json)
+                        </button>
+
+                        <label class="btn btn-secondary" style="cursor: pointer; margin: 0;">
+                          Restaurar backup (.json)
+                          <input type="file" id="file-import-backup" accept=".json" style="display: none;" />
+                        </label>
+                      </div>
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px solid var(--color-border-subtle); margin: 0;" />
+
+                    <!-- Restauração de Dados de Demonstração -->
+                    <div>
+                      <h4>Dados de Demonstração</h4>
+                      <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--spacing-3);">
+                        Deseja redefinir os dados para o conjunto inicial de testes do Finflow com transações e metas realistas?
+                      </p>
+                      <button type="button" class="btn btn-secondary" id="btn-reset-demo">
+                        Restaurar dados de demonstração
+                      </button>
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px solid var(--color-border-subtle); margin: 0;" />
+
+                    <!-- Zona de Perigo / Limpeza Completa -->
+                    <div style="background-color: var(--color-negative-bg); padding: var(--spacing-4); border-radius: var(--radius-md); border: 1px solid #F1B2B2;">
+                      <h4 style="color: var(--color-negative); margin-bottom: var(--spacing-1);">Zona de Perigo</h4>
+                      <p style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-bottom: var(--spacing-3);">
+                        Esta ação apagará permanentemente todas as suas transações, orçamentos e metas do navegador.
+                      </p>
+                      <button type="button" class="btn btn-danger btn-sm" id="btn-clear-all">
+                        Limpar todos os dados
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </main>
+
+        <!-- Rodapé do Painel com Autoria de Breno dos Santos Santana -->
+        <footer class="app-footer">
+          <p>Finflow &mdash; projeto de controle financeiro desenvolvido por <strong>Breno dos Santos Santana</strong>.</p>
+          <div class="footer-author-links">
+            <a href="https://github.com/breno2274" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="GitHub de Breno dos Santos Santana" title="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/breno-dos-santos-santana-2723a4213" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn de Breno dos Santos Santana" title="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+          </div>
+        </footer>
+      </div>
+
+      <!-- Barra Inferior de Atalhos Mobile -->
+      <nav class="mobile-nav" id="app-mobile-nav" aria-label="Navegação mobile">
+        <a href="#/dashboard" class="mobile-nav-item active">
+          <img src="img/icone-dashboard.svg" alt="" aria-hidden="true" />
+          <span>Início</span>
+        </a>
+        <a href="#/transacoes" class="mobile-nav-item">
+          <img src="img/icone-receitas.svg" alt="" aria-hidden="true" />
+          <span>Trans.</span>
+        </a>
+        <a href="#/orcamentos" class="mobile-nav-item">
+          <img src="img/icone-metas.svg" alt="" aria-hidden="true" />
+          <span>Metas</span>
+        </a>
+        <a href="#/relatorios" class="mobile-nav-item">
+          <img src="img/icone-relatorios.svg" alt="" aria-hidden="true" />
+          <span>Relat.</span>
+        </a>
+        <a href="#/configuracoes" class="mobile-nav-item">
+          <img src="img/icone-configuracoes.svg" alt="" aria-hidden="true" />
+          <span>Mais</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Modais e Notificações Globais -->
+    <div id="modal-container"></div>
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+  </div>
+
+  <!-- Inicialização Modular ES Modules -->
+  <script type="module" src="src/js/app.js"></script>
+</body>
+</html>

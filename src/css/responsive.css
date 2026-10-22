@@ -1,0 +1,235 @@
+/**
+ * RESPONSIVIDADE CSS — FINFLOW
+ * Adaptações de layout para tablets e dispositivos móveis (Mobile-first em telas estreitas).
+ * Conforme Tela 10 (PDF), a navegação em celulares é simplificada com barra inferior,
+ * gaveta lateral retrátil e cartões adaptados para toque.
+ */
+
+/* ==========================================================================
+   TABLETS E TELAS MÉDIAS (<= 1024px)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 210px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .budgets-goals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reports-charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reports-kpis-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--spacing-8);
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   DISPOSITIVOS MÓVEIS (<= 768px)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* Conversão da Sidebar em Gaveta Retrátil (Drawer) */
+  .app-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    z-index: var(--z-sidebar);
+    transform: translateX(-100%);
+    width: 260px;
+    box-shadow: var(--shadow-modal);
+  }
+
+  .app-sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+    border-radius: var(--radius-md);
+  }
+
+  /* Exibição da Barra Inferior Móvel */
+  .mobile-nav {
+    display: flex;
+    height: 60px;
+  }
+
+  .mobile-nav-item {
+    flex: 1;
+    height: 100%;
+    min-height: 48px;
+    justify-content: center;
+    padding: var(--spacing-2) 0;
+  }
+
+  /* Ajuste de Espaçamento para não colidir com o menu inferior */
+  .app-content {
+    padding: var(--spacing-4);
+    padding-bottom: calc(var(--mobile-nav-height) + var(--spacing-8));
+  }
+
+  .app-header {
+    padding: 0 var(--spacing-4);
+    height: 60px;
+    gap: var(--spacing-3);
+  }
+
+  .page-title-wrap h1 {
+    font-size: var(--font-size-lg);
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .app-header .user-avatar {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Expansão ergonômica de toque nos botões circulares sem alterar diâmetro visual */
+  .btn-action-edit,
+  .btn-action-delete {
+    position: relative;
+  }
+
+  .btn-action-edit::after,
+  .btn-action-delete::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+  }
+
+  .app-footer {
+    padding: var(--spacing-4);
+    padding-bottom: calc(var(--mobile-nav-height) + var(--spacing-6));
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+
+  .budget-cards-list {
+    grid-template-columns: 1fr;
+  }
+
+  .categories-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card-split {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-side-brand {
+    padding: var(--spacing-6);
+  }
+
+  .auth-form-side {
+    padding: var(--spacing-6);
+  }
+
+  /* Filtros de Transações em Coluna Única */
+  .transactions-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group-left {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Transformação responsiva da tabela em cards verticais em celulares */
+  .data-table,
+  .data-table thead,
+  .data-table tbody,
+  .data-table th,
+  .data-table td,
+  .data-table tr {
+    display: block;
+  }
+
+  .data-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .data-table tr {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-3);
+    padding: var(--spacing-3);
+    background-color: var(--color-surface);
+  }
+
+  .data-table td {
+    border: none;
+    padding: var(--spacing-1) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-sm);
+  }
+
+  .data-table td::before {
+    content: attr(data-label);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xs);
+  }
+
+  .data-table td.table-actions {
+    margin-top: var(--spacing-2);
+    padding-top: var(--spacing-2);
+    border-top: 1px dashed var(--color-border-subtle);
+    justify-content: flex-end;
+  }
+}

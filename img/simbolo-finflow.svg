@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
+  <!-- Símbolo oficial Finflow otimizado para Favicon e ícone de aba (proporção quadrada 1:1, sem fundo) -->
+  <!-- Barra superior em formato de pílula verde-água -->
+  <rect x="6" y="47" width="140" height="48" rx="24" fill="#68B0A8" />
+
+  <!-- Grupo inferior: Círculo verde escuro + Pílula menta suave perfeitamente tangentes -->
+  <circle cx="30" cy="129" r="24" fill="#438B84" />
+  <rect x="54" y="105" width="140" height="48" rx="24" fill="#A2DCBB" />
+</svg>

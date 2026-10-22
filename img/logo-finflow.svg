@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 46" width="190" height="46" fill="none">
+  <!-- Símbolo da marca Finflow baseado na identidade enviada: pílula superior, círculo e pílula inferior sem fundo -->
+  <g id="simbolo" transform="translate(0, 1) scale(0.28)">
+    <!-- Barra superior -->
+    <rect x="8" y="16" width="138" height="48" rx="24" fill="#68B0A8" />
+    <!-- Grupo inferior -->
+    <circle cx="32" cy="98" r="24" fill="#438B84" />
+    <rect x="56" y="74" width="138" height="48" rx="24" fill="#A2DCBB" />
+  </g>
+
+  <!-- Tipografia da marca com Playfair Display elegante -->
+  <text x="62" y="32" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="26" font-weight="700" letter-spacing="-0.5px" fill="#17212B">
+    Fin<tspan fill="#4D9690">flow</tspan>
+  </text>
+</svg>

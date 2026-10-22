@@ -1,0 +1,139 @@
+/**
+ * TOKENS DE DESIGN — FINFLOW
+ * Centralização de variáveis para paleta de cores, tipografia, espaçamentos,
+ * raios de borda e sombras, conforme definido no guia de UX/UI do Finflow.
+ */
+
+:root {
+  /* Identidade de Cores Principal */
+  --color-primary: #76B8B2;         /* Verde-água de destaque principal */
+  --color-primary-dark: #4D9690;    /* Verde escuro para ênfases e textos sobre menta */
+  --color-primary-hover: #65a6a0;   /* Tom para hover em botões primários */
+  --color-mint: #DDF3EE;            /* Menta suave para fundos de destaque */
+  --color-green-soft: #A9DDBA;      /* Verde suave de transição */
+
+  /* Cores Semânticas de Estado Financeiro */
+  --color-positive: #329B76;        /* Verde para receitas e metas concluídas */
+  --color-positive-bg: #EBF8F2;     /* Fundo suave para tags de receita */
+  --color-danger: #D96868;          /* Vermelho suave para despesas e alertas */
+  --color-danger-bg: #FDF0F0;       /* Fundo suave para tags de despesa */
+  --color-warning: #E5A83B;         /* Âmbar para orçamentos próximos do limite (>=80%) */
+  --color-warning-bg: #FEF7EC;      /* Fundo suave para alertas de atenção */
+  --color-accent: #6E9BD9;          /* Azul suave de apoio para comparações */
+
+  /* Superfícies e Fundos */
+  --color-bg: #F4F8F6;              /* Fundo geral da página (off-white esverdeado limpo) */
+  --color-surface: #FFFFFF;         /* Superfície dos cartões e modais */
+  --color-surface-subtle: #F9FBFA;  /* Fundo secundário para cabeçalhos e tabelas */
+  --color-surface-hover: #F0F6F4;   /* Feedback de hover em linhas de tabelas e menus */
+
+  /* Textos e Contrastes (conformidade WCAG AA) */
+  --color-text: #17212B;            /* Texto principal (cinza quase preto de alto contraste) */
+  --color-text-secondary: #687775;  /* Texto secundário e rótulos auxiliares */
+  --color-text-muted: #99A6A3;      /* Marcadores e textos desativados */
+  --color-text-inverse: #FFFFFF;    /* Texto claro sobre botões e badges */
+
+  /* Bordas e Divisores */
+  --color-border: #E2EAE7;          /* Borda padrão de cartões e inputs */
+  --color-border-focus: #76B8B2;    /* Borda destacada em foco de formulários */
+  --color-border-subtle: #EDF3F1;   /* Divisores internos suaves */
+
+  /* Tipografia Playfair Display */
+  --font-family-base: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-size-xs: 0.75rem;     /* 12px */
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;    /* 18px */
+  --font-size-xl: 1.25rem;     /* 20px */
+  --font-size-2xl: 1.5rem;     /* 24px */
+  --font-size-3xl: 1.875rem;   /* 30px */
+  --font-size-4xl: 2.25rem;    /* 36px */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+
+  /* Espaçamentos Consistentes */
+  --spacing-1: 0.25rem;  /* 4px */
+  --spacing-2: 0.5rem;   /* 8px */
+  --spacing-3: 0.75rem;  /* 12px */
+  --spacing-4: 1rem;     /* 16px */
+  --spacing-5: 1.25rem;  /* 20px */
+  --spacing-6: 1.5rem;   /* 24px */
+  --spacing-8: 2rem;     /* 32px */
+  --spacing-10: 2.5rem;  /* 40px */
+  --spacing-12: 3rem;    /* 48px */
+  --spacing-16: 4rem;    /* 64px */
+
+  /* Raios de Borda (entre 6px e 12px conforme referência UX) */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --radius-full: 9999px;
+
+  /* Sombras Discretas e Elegantes */
+  --shadow-subtle: 0 1px 3px rgba(23, 33, 43, 0.04);
+  --shadow-card: 0 2px 8px rgba(23, 33, 43, 0.04);
+  --shadow-hover: 0 6px 16px rgba(23, 33, 43, 0.07);
+  --shadow-modal: 0 16px 36px rgba(23, 33, 43, 0.12);
+
+  /* Efeito Neumórfico (relevo 3D suave) aplicado aos botões de todo o projeto.
+     A ilusão de relevo nasce de duas sombras opostas: uma escura (canto inferior
+     direito) e uma clara (canto superior esquerdo), ambas derivadas do fundo. */
+  --neu-shadow-dark: #CBDAD6;
+  --neu-shadow-light: #FFFFFF;
+  --neu-raised: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+  --neu-raised-sm: 3px 3px 7px var(--neu-shadow-dark), -3px -3px 7px var(--neu-shadow-light);
+  --neu-pressed: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+  --neu-glow-edit: 0 10px 15px -3px rgba(77, 150, 144, 0.35);    /* Brilho verde-água do Editar */
+  --neu-glow-delete: 0 10px 15px -3px rgba(217, 104, 104, 0.35); /* Brilho vermelho do Excluir */
+  --size-action-btn: 42px;          /* Diâmetro dos botões circulares de ação (Editar/Excluir) */
+
+  /* Transições e Animações Suaves */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 300ms cubic-bezier(0.25, 0.8, 0.25, 1); /* Flutuação elástica dos botões */
+
+  /* Dimensões do Layout */
+  --sidebar-width: 250px;
+  --sidebar-collapsed-width: 72px;
+  --header-height: 64px;
+  --mobile-nav-height: 60px;
+  --max-content-width: 1240px;
+
+  /* Camadas (z-index) */
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-header: 30;
+  --z-sidebar: 40;
+  --z-modal-backdrop: 50;
+  --z-modal: 60;
+  --z-toast: 100;
+}
+
+/* Suporte opcional ao tema escuro preservando a identidade verde-água */
+[data-theme="dark"] {
+  --color-bg: #111817;
+  --color-surface: #182221;
+  --color-surface-subtle: #1F2D2B;
+  --color-surface-hover: #263836;
+  --color-text: #F1F6F5;
+  --color-text-secondary: #9DB3AF;
+  --color-text-muted: #6B827E;
+  --color-border: #2A3B39;
+  --color-border-subtle: #22302E;
+  --color-primary-dark: #76B8B2;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-modal: 0 16px 36px rgba(0, 0, 0, 0.45);
+  /* No escuro, a luz vira um tom levemente mais claro que a superfície */
+  --neu-shadow-dark: #0A100F;
+  --neu-shadow-light: #24332F;
+}

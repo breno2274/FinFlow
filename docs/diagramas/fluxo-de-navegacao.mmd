@@ -1,0 +1,44 @@
+stateDiagram-v2
+    [*] --> LandingPage: #/ (Início Público)
+
+    LandingPage --> Dashboard: Clicar em "Começar agora" ou "Acessar Painel"
+    LandingPage --> AuthView: Clicar em "Entrar" (#/login)
+    LandingPage --> AboutView: Clicar em "Sobre" (#/sobre)
+
+    AboutView --> Dashboard: Clicar em "Acessar Painel" (#/dashboard)
+    AboutView --> LandingPage: Clicar no logo ou "Voltar ao Início" (#/)
+
+    AuthView --> Dashboard: Entrar em modo demonstração (#/dashboard)
+    AuthView --> LandingPage: Voltar (#/)
+
+    state AppShell {
+        [*] --> Dashboard: #/dashboard
+        
+        Dashboard --> Transactions: #/transacoes
+        Dashboard --> BudgetsGoals: #/orcamentos
+        Dashboard --> Reports: #/relatorios
+        Dashboard --> Categories: #/categorias
+        Dashboard --> Settings: #/configuracoes
+
+        Transactions --> TransactionModal: + Nova Transação / Editar
+        Dashboard --> TransactionModal: + Nova Transação rápida
+
+        TransactionModal --> Transactions: Salvar / Cancelar
+        TransactionModal --> Dashboard: Salvar / Cancelar
+
+        BudgetsGoals --> BudgetModal: + Criar / Ajustar Orçamento
+        BudgetsGoals --> GoalModal: + Nova Meta / Editar
+        BudgetsGoals --> ContributionModal: + Adicionar Dinheiro
+
+        BudgetModal --> BudgetsGoals: Salvar / Cancelar
+        GoalModal --> BudgetsGoals: Salvar / Cancelar
+        ContributionModal --> BudgetsGoals: Salvar / Cancelar
+
+        Categories --> CategoryModal: + Nova Categoria / Editar
+        CategoryModal --> Categories: Salvar / Cancelar
+
+        Settings --> BackupJSON: Exportar arquivo (.json)
+        Settings --> RestoreDialog: Importar ou Restaurar Demo
+    }
+
+    AppShell --> LandingPage: Clicar no logotipo "Finflow" da Sidebar (#/)

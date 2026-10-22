@@ -1,0 +1,9 @@
+# Arquivos e diretórios ignorados pelo Git
+
+# Changelog
+CHANGELOG.md
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,77 @@
+graph TD
+    subgraph Apresentacao ["Camada de Apresentação (UI)"]
+        Index["index.html"] --> App["app.js (Entry Point)"]
+        App --> Router["router.js (Hash Router)"]
+        
+        Router --> ViewLanding["views/landing.js"]
+        Router --> ViewAuth["views/auth.js"]
+        Router --> ViewDash["views/dashboard.js"]
+        Router --> ViewTx["views/transactions.js"]
+        Router --> ViewBudgets["views/budgets.js"]
+        Router --> ViewReports["views/reports.js"]
+        Router --> ViewCats["views/categories.js"]
+        Router --> ViewSettings["views/settings.js"]
+
+        ViewTx -.-> FormTx["views/transaction-form.js"]
+        ViewDash -.-> FormTx
+        
+        Router --> CompSidebar["components/sidebar.js"]
+        Router --> CompModal["components/modal.js"]
+        Router --> CompToast["components/toast.js"]
+        Router --> CompEmpty["components/empty-state.js"]
+    end
+
+    subgraph Servicos ["Camada de Serviços e Negócio"]
+        TxService["services/transaction-service.js"]
+        BudgetService["services/budget-service.js"]
+        GoalService["services/goal-service.js"]
+        CatService["services/category-service.js"]
+        ReportService["services/report-service.js"]
+    end
+
+    subgraph Utilitarios ["Utilitários e Validações"]
+        FormatUtil["utils/format.js"]
+        DateUtil["utils/dates.js"]
+        ValidUtil["utils/validators.js"]
+    end
+
+    subgraph Persistencia ["Camada de Persistência"]
+        StorageCore["core/storage.js"]
+        LocalStorage[("Navegador: LocalStorage (finflow_v1_*)")]
+    end
+
+    %% Conexões da Apresentação com Serviços
+    ViewDash --> TxService
+    ViewDash --> GoalService
+    ViewDash --> ReportService
+    ViewTx --> TxService
+    FormTx --> TxService
+    FormTx --> CatService
+    ViewBudgets --> BudgetService
+    ViewBudgets --> GoalService
+    ViewReports --> ReportService
+    ViewCats --> CatService
+    ViewSettings --> StorageCore
+
+    %% Conexões dos Serviços com Core e Validações
+    TxService --> StorageCore
+    TxService --> ValidUtil
+    BudgetService --> StorageCore
+    BudgetService --> ValidUtil
+    GoalService --> StorageCore
+    GoalService --> ValidUtil
+    CatService --> StorageCore
+    CatService --> ValidUtil
+    ReportService --> StorageCore
+
+    %% Persistência Real
+    StorageCore <--> LocalStorage
+    StorageCore --> ValidUtil
+
+    %% Formatações
+    ViewDash --> FormatUtil
+    ViewDash --> DateUtil
+    ViewTx --> FormatUtil
+    ViewTx --> DateUtil
+    ViewBudgets --> FormatUtil
+    ViewReports --> FormatUtil

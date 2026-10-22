@@ -1,0 +1,43 @@
+erDiagram
+    CATEGORY ||--o{ TRANSACTION : "classifica"
+    CATEGORY ||--o{ BUDGET : "possui limite em"
+
+    CATEGORY {
+        string id PK "Identificador único (ex: cat-desp-1)"
+        string name "Nome legível (ex: Alimentação)"
+        string type "Tipo: 'receita' ou 'despesa'"
+        string color "Código hexadecimal (ex: #76B8B2)"
+    }
+
+    TRANSACTION {
+        string id PK "Identificador único (ex: tx-001)"
+        string description "Descrição da movimentação"
+        number amount "Valor em ponto flutuante positivo"
+        string type "Tipo: 'receita' ou 'despesa'"
+        string categoryId FK "Vínculo com a Categoria"
+        string date "Data ISO (YYYY-MM-DD)"
+        string notes "Observações adicionais opcionais"
+    }
+
+    BUDGET {
+        string id PK "Identificador único (ex: bg-01)"
+        string categoryId FK "Categoria de despesa limitada"
+        number limitAmount "Valor limite estipulado em R$"
+        string monthKey "Mês do orçamento (YYYY-MM)"
+    }
+
+    GOAL {
+        string id PK "Identificador único (ex: goal-01)"
+        string name "Título do objetivo (ex: Viagem)"
+        number targetAmount "Valor total desejado em R$"
+        number currentAmount "Valor acumulado guardado em R$"
+        string targetDate "Data-alvo opcional (YYYY-MM-DD)"
+        string color "Cor do anel de progresso"
+    }
+
+    PREFERENCES {
+        string userName "Nome de exibição (ex: Breno)"
+        string currency "Código de moeda (BRL)"
+        string dateFormat "Formato de data (DD/MM/AAAA)"
+        string theme "Tema visual: 'light' ou 'dark'"
+    }
