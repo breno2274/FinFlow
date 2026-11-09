@@ -127,3 +127,62 @@ graph TD
 - **`toast.js`:** Notificações não intrusivas com cores semânticas e suporte a leitores de tela (`aria-live="polite"`).
 - **`sidebar.js`:** Menu de navegação lateral para desktop e gaveta retrátil com overlay para celulares.
 - **`empty-state.js`:** Ilustrações acolhedoras quando listas não contêm itens.
+
+
+---
+
+## 4. Arquitetura Modular v2 em React e TypeScript (Branch refactor-estrutura)
+
+Na branch `refactor-estrutura`, o sistema foi reorganizado para máxima legibilidade humana e facilidade de manutenção:
+
+```mermaid
+graph TD
+    subgraph Entrada ["Ponto de Entrada"]
+        IndexHtml["index.html (25 linhas limpas)"] --> MainTsx["src/main.tsx"]
+        MainTsx --> AppTsx["src/App.tsx (Roteador Hash)"]
+    end
+
+    subgraph Telas ["src/pages/ (Páginas Independentes)"]
+        AppTsx --> DashPage["DashboardPage.tsx"]
+        AppTsx --> TxPage["TransactionsPage.tsx"]
+        AppTsx --> BudgetsPage["BudgetsPage.tsx"]
+        AppTsx --> ReportsPage["ReportsPage.tsx"]
+        AppTsx --> CategoriesPage["CategoriesPage.tsx"]
+        AppTsx --> SettingsPage["SettingsPage.tsx"]
+        AppTsx --> LandingPage["LandingPage.tsx"]
+        AppTsx --> LoginPage["LoginPage.tsx"]
+        AppTsx --> AboutPage["AboutPage.tsx"]
+    end
+
+    subgraph Componentes ["src/components/ (Reutilizáveis)"]
+        Common["common/ (Modal, EmptyState)"]
+        Charts["charts/ (FlowChart, BarChart, GoalRing em SVG)"]
+        Layout["layout/ (Sidebar, Header, MobileNav)"]
+        Modals["modals/ (Transaction, Budget, Goal, Contribution, Category, Confirm)"]
+    end
+
+    subgraph Regras ["src/services/ (Regras de Negócio Puras)"]
+        TxService["transactionService.ts"]
+        BudgetService["budgetService.ts"]
+        GoalService["goalService.ts"]
+        CatService["categoryService.ts"]
+        ReportService["reportService.ts"]
+        StorageCore["storage.ts (LocalStorage v2.0.0)"]
+    end
+
+    subgraph Tipagem ["src/types/"]
+        Types["index.ts (Interfaces e Modelos Estritos)"]
+    end
+
+    Telas --> Componentes
+    Telas --> Regras
+    Regras --> StorageCore
+    Telas --> Tipagem
+    Regras --> Tipagem
+```
+
+### 4.1. Benefícios da Estrutura v2
+1. **Leitura Direta:** Cada tela possui seu próprio arquivo em `src/pages/`, eliminando a necessidade de buscar trechos dentro de um arquivo HTML gigante.
+2. **Componentes Isolados:** Gráficos, modais e barra de navegação são blocos independentes em `src/components/`, facilitando correções sem efeitos colaterais.
+3. **Serviços Tipados:** Qualquer operação financeira (calcular saldo, validar limite, filtrar transação) fica em funções puras e testáveis em `src/services/`.
+4. **Sem Efeitos Colaterais no DOM:** O React cuida da atualização da tela a partir do estado, sem necessidade de `document.getElementById` espalhados pelo código.

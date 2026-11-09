@@ -3,7 +3,7 @@
 > Uma aplicação web moderna, leve e intuitiva de controle financeiro pessoal, desenvolvida com foco em engenharia de software front-end, design system consistente, acessibilidade e documentação técnica completa.
 
 **Autor:** Breno dos Santos Santana  
-**Objetivo:** Projeto de portfólio para demonstração prática de competências em desenvolvimento Front-end para oportunidades de estágio.  
+**Objetivo:** Projeto de portfólio para demonstração prática de competências em desenvolvimento Front-end para oportunidades de estágio e júnior.  
 **Demonstração Online:** Compatível com GitHub Pages (100% estático, sem necessidade de servidor backend).
 
 ---
@@ -61,9 +61,10 @@ O projeto adota uma identidade visual original em tons de **verde-água (`#76B8B
   - Filtros multifatoriais por período (mês), tipo (receitas/despesas) e categoria.
   - Tabela com ações de edição e exclusão com diálogo de confirmação.
   - Paginação de dados e adaptação para cartões em celulares.
+  - Exportação instantânea de extrato financeiro para planilhas em formato `.csv`.
 - **Orçamentos e Metas (Tela 06):**
-  - Definição de tetos de gastos mensais por categoria com barras de utilização e alertas automáticos de atenção (>=80%) e limite excedido (>100%).
-  - Metas de economia com anéis circulares percentuais (`goal-ring`), cálculo de valor restante e modal para registrar novos aportes/contribuições.
+  - Definição e edição de tetos de gastos mensais por categoria com barras de utilização e alertas automáticos de atenção (>=80%) e limite excedido (>100%).
+  - Metas de economia com anéis circulares percentuais (`goal-ring`), cálculo de valor restante e modal para registrar novos aportes e editar objetivos.
 - **Relatórios Analíticos (Tela 07):** Gráfico comparativo de barras mensal em SVG (Receitas vs Despesas) e distribuição percentual proporcional de despesas por categoria.
 - **Gestão de Categorias (Tela 08):** Cadastro, edição, escolha de paleta de cores e proteção de integridade referencial: impede a exclusão de categorias que possuem lançamentos ativos e oferece fluxo assistido de reclassificação.
 - **Configurações e Gestão de Backup (Tela 09):** Preferências visuais (nome, moeda, chave toggle de tema claro/escuro), exportação de backup completo em `.json`, importação com validação de esquema, restauração de dados demo e limpeza total.
@@ -74,11 +75,13 @@ O projeto adota uma identidade visual original em tons de **verde-água (`#76B8B
 
 ## 3. Tecnologias Utilizadas
 
+- **React 18:** Componentização modular, reatividade declarativa de estado e eliminação de manipulações manuais de nós do navegador.
+- **TypeScript (Modo Estrito):** Tipagem estática de ponta a ponta para transações, categorias, orçamentos, metas e preferências, prevenindo falhas de execução.
+- **Vite:** Ferramenta de build moderna de inicialização instantânea e compilação otimizada para produção.
 - **HTML5 Semântico:** Estruturação orientada a acessibilidade (`<header>`, `<nav>`, `<main>`, `<aside>`, `<footer>`, `<dialog>`, `<table>`).
-- **CSS3 Puro com Tokens de Design e Sistema Neumórfico:** Centralização de cores, tipografia, espaçamentos, relevo com sombras duplas e efeitos de interação tátil em `src/css/tokens.css`, sem dependência de Tailwind ou pré-processadores.
-- **JavaScript Moderno (ES Modules Nativo):** Arquitetura desacoplada em módulos (`import`/`export`), sem ferramentas de empacotamento pesadas.
+- **CSS3 Puro com Tokens de Design e Sistema Neumórfico:** Centralização de cores, tipografia, espaçamentos, relevo com sombras duplas e efeitos de interação tátil em `src/css/tokens.css`.
 - **Recursos Gráficos Vetoriais (SVG):** Logotipo, ilustrações de hero, estados vazios e ícones desenvolvidos internamente em SVG.
-- **LocalStorage API:** Persistência de dados segura com versionamento de esquema (`1.0.0`) e eventos customizados para reatividade.
+- **LocalStorage API:** Persistência de dados segura com versionamento de esquema (`2.0.0`) e eventos customizados para reatividade.
 
 ---
 
@@ -86,38 +89,24 @@ O projeto adota uma identidade visual original em tons de **verde-água (`#76B8B
 
 ```text
 finflow/
-├── index.html                   # Estrutura semântica completa e casca da SPA
+├── index.html                   # Casca leve de entrada da aplicação React (~25 linhas)
+├── package.json                 # Dependências do projeto (React, TypeScript, Vite)
+├── tsconfig.json                # Configurações do compilador TypeScript em modo estrito
+├── vite.config.ts               # Configuração do Vite com caminhos relativos para GitHub Pages
 ├── README.md                    # Apresentação, telas e documentação geral do projeto
 ├── guide.md                     # Diretrizes permanentes de engenharia e sincronização
-├── .gitignore                   # Arquivos ignorados no Git (ex.: changelog local)
 │
-├── docs/                        # Documentação técnica e de engenharia de software
-│   ├── screenshots/             # Capturas de tela em alta resolução para visualização
-│   │   ├── dashboard.png
-│   │   ├── orcamentos.png
-│   │   ├── relatorios.png
-│   │   ├── dashboard-dark.png
-│   │   └── mobile.png
-│   ├── requisitos.md            # Especificação de requisitos funcionais e não funcionais
-│   ├── arquitetura.md           # Arquitetura modular, responsabilidade de camadas e diagrama
-│   ├── ux-ui.md                 # Guia de identidade visual, acessibilidade e padrões
-│   ├── modelo-de-dados.md       # Diagrama de entidades, atributos e regras de integridade
-│   ├── decisoes-tecnicas.md     # Registro de decisões arquiteturais (ADRs)
-│   └── diagramas/               # Diagramas Mermaid (.mmd)
-│       ├── arquitetura.mmd
-│       ├── fluxo-de-navegacao.mmd
-│       ├── modelo-de-dados.mmd
-│       └── fluxo-de-dados.mmd
-│
-├── img/                         # Recursos visuais e gráficos vetoriais originais
-│   ├── logo-finflow.svg
-│   ├── simbolo-finflow.svg
-│   ├── ilustracao-hero-finflow.svg
-│   ├── ilustracao-sem-transacoes.svg
-│   └── icones (svg)...
+├── public/                      # Recursos visuais estáticos entregues pelo Vite
+│   └── img/                     # Logotipos, símbolos e ícones SVG originais
 │
 ├── src/
-│   ├── css/                     # Sistema de design modular em Vanilla CSS
+│   ├── main.tsx                 # Ponto de entrada do React e importação dos estilos CSS
+│   ├── App.tsx                  # Roteador SPA baseado em Hash (#/) e Casca Principal
+│   │
+│   ├── types/                   # Modelos e contratos tipados (Transacao, Categoria, Meta, Orcamento)
+│   │   └── index.ts
+│   │
+│   ├── css/                     # Sistema de design modular em Vanilla CSS (100% preservado)
 │   │   ├── tokens.css           # Variáveis de cor, tipografia e espaçamento
 │   │   ├── reset.css            # Normalização de estilo entre navegadores
 │   │   ├── base.css             # Estilos fundamentais e acessibilidade (:focus-visible)
@@ -126,64 +115,85 @@ finflow/
 │   │   ├── pages.css            # Estilos específicos de cada tela
 │   │   └── responsive.css       # Regras para tablets e celulares (drawer e mobile-nav)
 │   │
-│   └── js/                      # Lógica da aplicação orientada a módulos ES
-│       ├── app.js               # Inicialização geral e listeners
-│       ├── router.js            # Roteador SPA baseado em Hash (#/)
-│       ├── components/          # Componentes de interface (modal, toast, sidebar, empty-state)
-│       ├── views/               # Controladores de tela (landing, dashboard, transactions, etc.)
-│       ├── services/            # Camada de negócio e regras (transactions, budgets, goals, etc.)
-│       ├── core/                # Camada de persistência LocalStorage com versionamento
-│       └── utils/               # Funções de formatação BRL, cálculos de datas e validadores
+│   ├── services/                # Camada de regras de negócio e persistência no LocalStorage
+│   │   ├── storage.ts           # Gestão do LocalStorage, dados demo, migração e backup JSON
+│   │   ├── transactionService.ts# Lógica de negócio de transações, filtros, totais e tendências
+│   │   ├── budgetService.ts     # Acompanhamento de limites de gastos mensais e alertas
+│   │   ├── goalService.ts       # Metas de economia e cálculo de aportes
+│   │   ├── categoryService.ts   # Categorias e proteção de integridade referencial
+│   │   └── reportService.ts     # Agregações analíticas mensais e distribuição de gastos
+│   │
+│   ├── utils/                   # Utilitários puros
+│   │   ├── format.ts            # Formatação em Real brasileiro (R$), porcentagens e moedas
+│   │   ├── dates.ts             # Manipulação de datas, meses retroativos e datas relativas
+│   │   └── csv.ts               # Exportação de extrato formatado para planilhas Excel/CSV
+│   │
+│   ├── hooks/                   # Custom Hooks do React
+│   │   └── useFinflowData.ts    # Reatividade automática perante mudanças no LocalStorage
+│   │
+│   ├── components/              # Componentes React modulares e reutilizáveis
+│   │   ├── layout/              # Sidebar lateral, Header superior e MobileNav inferior
+│   │   ├── common/              # Modal acessível, Toast e EmptyState
+│   │   ├── charts/              # Gráficos vetoriais SVG de fluxo, barras e anéis circulares
+│   │   └── modals/              # Modais de formulário (transação, orçamento, meta, categoria)
+│   │
+│   └── pages/                   # Componentes dedicados para cada tela da aplicação
+│       ├── LandingPage.tsx      # Página inicial institucional pública
+│       ├── AboutPage.tsx        # Página sobre o projeto e tecnologias
+│       ├── LoginPage.tsx        # Tela de acesso em modo demonstração
+│       ├── DashboardPage.tsx    # Painel geral com cartões de saldo e fluxo financeiro
+│       ├── TransactionsPage.tsx # Gestão de receitas e despesas com busca e filtros
+│       ├── BudgetsPage.tsx      # Orçamentos por categoria e metas de economia
+│       ├── ReportsPage.tsx      # Relatórios analíticos e tendências de gastos
+│       ├── CategoriesPage.tsx   # Gestão de categorias com controle de integridade
+│       └── SettingsPage.tsx     # Preferências, alternância de tema e backups
 │
-└── tests/
-    └── roteiro-de-testes.md     # Roteiro formal com 20 cenários de testes validados
+└── docs/                        # Documentação técnica de apoio
+    └── screenshots/             # Capturas de tela para apresentação visual
 ```
 
 ---
 
 ## 5. Como Executar Localmente
 
-Como o Finflow utiliza módulos nativos de JavaScript (`type="module"`), o navegador exige a execução sob um servidor web local simples (para respeitar as políticas de segurança de CORS de arquivos locais).
+Para rodar o Finflow em ambiente de desenvolvimento local:
 
-### Opção 1: Extensão Live Server do VS Code / Antigravity IDE
-1. Abra a pasta do projeto no seu editor.
-2. Clique com o botão direito no arquivo `index.html` e selecione **"Open with Live Server"**.
-3. O navegador abrirá automaticamente em `http://127.0.0.1:5500/`.
+**Método rápido (Windows):**
+Basta dar dois cliques no arquivo `iniciar.bat` localizado na pasta raiz do projeto. Ele verifica e instala as dependências automaticamente caso necessário, inicia o servidor Vite e abre o navegador direto no Finflow.
 
-### Opção 2: Python (Nativo no Linux, Mac e Windows)
-Abra o terminal na pasta do projeto e execute:
+**Método via terminal:**
+1. Certifique-se de ter o **Node.js** (versão 18 ou superior) instalado em sua máquina.
+2. Abra o terminal na pasta raiz do projeto e instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Inicie o servidor de desenvolvimento do Vite:
+   ```bash
+   npm run dev
+   ```
+4. O terminal indicará o endereço local de acesso (geralmente `http://localhost:5173/`). Abra este endereço em seu navegador.
+
+Para gerar a versão otimizada de produção:
 ```bash
-python -m http.server 8000
+npm run build
 ```
-Em seguida, acesse `http://localhost:8000` no seu navegador.
-
-### Opção 3: Node.js / npx serve
-```bash
-npx serve .
-```
+Os arquivos prontos e estáticos serão gerados dentro da pasta `dist/`.
 
 ---
 
 ## 6. Como Publicar no GitHub Pages
 
-O projeto foi construído especificamente com caminhos relativos e roteador em Hash (`#/`) para funcionar 100% no GitHub Pages sem nenhuma dependência de backend:
+O projeto utiliza caminhos relativos configurados no `vite.config.ts` (`base: './'`) e roteamento por Hash (`#/`), com deploy automatizado em `.github/workflows/deploy.yml`:
 
-1. No repositório no GitHub, clique na aba **Settings** (Configurações).
-2. No menu lateral esquerdo, clique em **Pages**.
-3. Em **Build and deployment**:
-   - **Source:** Selecione `Deploy from a branch`.
-   - **Branch:** Selecione `main` e a pasta `/ (root)`.
-4. Clique em **Save**.
-5. Em poucos instantes, o GitHub fornecerá a URL pública do seu Finflow (ex.: `https://breno2274.github.io/FinFlow/`).
+1. Na primeira configuração do repositório, acesse **Settings** > **Pages** no GitHub e defina **Source** como **GitHub Actions**.
+2. A cada push na branch `main`, o workflow instala as dependências, executa `npm run build` e publica automaticamente a pasta compilada `dist/`.
 
 ---
 
-## 7. Limitações Conhecidas da Versão Atual (MVP 1.0)
+## 7. Histórico Recente de Alterações
 
-- **Persistência Local (LocalStorage):** Os dados ficam salvos exclusivamente no navegador do dispositivo utilizado. Não há sincronização entre múltiplos computadores ou celulares sem a exportação/importação manual do backup JSON.
-- **Autenticação Online:** Não há autenticação remota em banco de dados no momento; a tela de login opera em modo pedagógico e demonstrativo, sem armazenar senhas no navegador.
-- **Integração Bancária Automática:** Os lançamentos são inseridos manualmente pelo usuário ou através da carga de arquivos JSON.
-- *Planejamento para a Fase 2:* Desacoplamento da camada `storage.js` para integração com Supabase ou Firebase via API REST.
+- **09/11/2026:** Adicionado o workflow de deploy em `.github/workflows/deploy.yml` para publicação automática da build Vite no GitHub Pages e concluído o merge da branch `refactor-estrutura` na `main`.
+- **01/11/2026:** Migração da arquitetura para React com TypeScript e Vite na branch `refactor-estrutura`, modularizando todas as telas em componentes dedicados, reduzindo o arquivo `index.html` de mais de 1.100 linhas para 25 linhas, adicionando suporte à exportação de extrato em `.csv` e edição direta de orçamentos e metas, mantendo 100% da identidade visual, estilos e persistência local intactos.
 
 ---
 
@@ -195,4 +205,4 @@ Projeto idealizado e desenvolvido por **Breno dos Santos Santana**:
 
 ---
 
-*Finflow &copy; 2026 — Desenvolvido com carinho e precisão técnica para avaliação em vagas de estágio Front-end.*
+*Finflow &copy; 2026 — Desenvolvido com carinho e precisão técnica para avaliação em vagas de estágio e júnior Front-end.*
