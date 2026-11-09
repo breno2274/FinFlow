@@ -70,3 +70,14 @@
   - *Positivas:* Visual contemporâneo, refinado e com grande apelo tátil; economia substancial de largura em tabelas e telas menores; acessibilidade preservada com atributos `title` e `aria-label`; consistência estética estendida a botões principais, paginação e modais.
 
 
+
+
+---
+
+## ADR 09: Migração para React 18, TypeScript Estrito e Vite (Branch refactor-estrutura)
+- **Status:** Aprovado e Implementado na branch `refactor-estrutura`
+- **Contexto:** O projeto continha um arquivo `index.html` monolítico de mais de 1.100 linhas que agregava todas as telas simultaneamente, com manipulação imperativa manual de nós do DOM. Essa abordagem tornava a manutenção complexa e exigia navegar por milhares de linhas misturadas.
+- **Decisão:** Modularizar o projeto integralmente em React 18 com TypeScript em modo estrito e Vite como empacotador. Cada tela virou uma página independente (`src/pages/`), os elementos visuais viraram componentes reutilizáveis (`src/components/`), as regras de negócio foram encapsuladas em serviços tipados (`src/services/`) e todos os dados possuem contratos formais (`src/types/index.ts`). Todo o CSS original, tokens de design, gráficos vetoriais SVG e a persistência no LocalStorage foram preservados.
+- **Consequências:**
+  - *Positivas:* Código limpo, componentizado, com tipagem estrita que previne erros de digitação e incompatibilidade de dados antes da execução. O arquivo `index.html` caiu de 1.105 linhas para 25 linhas limpas. Redução drástica na complexidade para leitura humana. Facilidade para conectar a uma API remota no futuro.
+  - *Compensações:* Introdução de etapa de execução com Vite (`npm run dev` e `npm run build`), com saída estática otimizada na pasta `dist/` compatível com GitHub Pages.

@@ -4,41 +4,18 @@
  */
 
 /* Container mestre do aplicativo */
-#app {
+#app, #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Alternância e Visibilidade de Telas Principais e Subtelas */
-.view-screen {
-  display: none !important;
-}
-
-.view-screen.active {
-  display: block !important;
-}
-
-#view-app-shell {
-  display: none !important;
-}
-
-#view-app-shell.active {
-  display: flex !important;
-}
-
-.subpage-view {
-  display: none !important;
-}
-
-.subpage-view.active {
-  display: block !important;
-}
-
 /* Layout do Painel Interno (App Shell) */
-.app-shell {
+.app-shell, #view-app-shell {
   min-height: 100vh;
   background-color: var(--color-bg);
+  display: flex;
+  flex: 1;
 }
 
 /* Sidebar de Navegação Lateral */
@@ -349,6 +326,7 @@
   backdrop-filter: blur(2px);
 }
 
-.sidebar-backdrop.active {
+.sidebar-backdrop.active,
+.sidebar-backdrop.sidebar-open {
   display: block;
 }
