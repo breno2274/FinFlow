@@ -3,7 +3,7 @@
 > Uma aplicação web moderna, leve e intuitiva de controle financeiro pessoal, desenvolvida com foco em engenharia de software front-end, design system consistente, acessibilidade e documentação técnica completa.
 
 **Autor:** Breno dos Santos Santana  
-**Objetivo:** Projeto de portfólio para demonstração prática de competências em desenvolvimento Front-end para oportunidades de estágio e júnior.  
+  
 **Demonstração Online:** Compatível com GitHub Pages (100% estático, sem necessidade de servidor backend).
 **link no github pages:** https://breno2274.github.io/FinFlow/
 ---
